@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import DataDisplay from "./DataDisplay";
+const moment = require("moment");
 
 class App extends Component {
   constructor(props) {
@@ -45,8 +46,8 @@ class App extends Component {
               windSpeed: data.currently.windSpeed,
               humidity: data.currently.humidity,
               rain: data.currently.precipProbability,
-              sunrise: Date(data.daily.data[0].sunriseTime),
-              sunset: Date(data.daily.data[0].sunsetTime)
+              sunrise: moment.unix(data.daily.data[0].sunriseTime).format("LT"),
+              sunset: moment.unix(data.daily.data[0].sunsetTime).format("LT")
             }
           });
         });
