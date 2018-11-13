@@ -60,30 +60,36 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Comparison App</h1>
+        <div class = "headline" ><h1>COMPARISON APP</h1>
+        <h4>Enter up to two cities here:</h4>
+        </div>
         <form onSubmit={this.coordinateSubmit}>
-          <div>
+          <div class = "row justify-content-lg-center" id = "data-entry" >
             <input
+              class="form-control form-control-lg col-lg-3"
               type="text"
               name="latitude"
               placeholder="Enter Latitude"
               // value="35.6895"
             />
             <input
+              class="form-control form-control-lg col-lg-3"
               type="text"
               name="longitude"
               placeholder="Enter longitude"
               // value="139.6917"
             />
           </div>
-          <div>
+          <div class = "row justify-content-lg-center" id = "data-entry">
             <input
+              class="form-control form-control-lg col-lg-3"
               type="text"
               name="latitude2"
               placeholder="Enter Latitude"
               // value="35.6895"
             />
             <input
+              class="form-control form-control-lg col-lg-3"
               type="text"
               name="longitude2"
               placeholder="Enter longitude"
@@ -91,9 +97,13 @@ class App extends Component {
             />
           </div>
           <button>Submit</button>
-        </form>
+        </form><br></br>
+        <div class = "container" >
+        <div class = "row" >
         <DataDisplay data={this.state.summary1} />
         <DataDisplay data={this.state.summary2} />
+        </div>
+        </div>
       </div>
     );
   }

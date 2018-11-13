@@ -7,6 +7,20 @@
   height: 40vmin;
 }
 
+body {
+ /* background-image: url("https://www.publicdomainpictures.net/pictures/40000/velka/alone-in-sundow.jpg"); */
+ background-image: url("./images/alone-in-sundow.jpg");
+}
+
+.headline {
+  color: white;
+  font-family: Trajan;
+}
+
+#data-entry {
+  padding: 5px;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
