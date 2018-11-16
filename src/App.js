@@ -6,7 +6,7 @@ const moment = require("moment");
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { summary1: {}, summary2: {} };
+    this.state = { summary1: {}, summary2: {}, geoData1: {}, geoData2: {} };
   }
 
   coordinateSubmit = e => {
@@ -22,6 +22,31 @@ class App extends Component {
     this.getweatherdata(latitude, longitude, "summary1");
     this.getweatherdata(latitude2, longitude2, "summary2");
   };
+
+  zipcodeSubmit = e => {
+    e.preventDefault();
+    const zipcode = e.target.elements.zipcode.value;
+    const zipcode2 = e.target.elements.zipcode2.value;
+    this.getCityData(zipcode,"geoData1");
+    this.getCityData(zipcode2, "geoData2");
+  }
+
+  getCityData = (zipcode, stateKey) => {
+    fetch(
+      `https://maps.googleapis.com/maps/api/geocode/json?address=${zipcode}&key=AIzaSyDVPLLlJAQ679Frd0gu11khJ9mW02wsvWQ`)
+    .then(response => {
+      if (response.status !== 200) {
+        console.log(
+          "Looks like there was a problem. Status Code: " + response.status
+        );
+        return;
+      }
+      response.json().then(data => {
+        console.log(data);
+      })
+    })
+    console.log(zipcode);
+  }
 
   getweatherdata = (latitude, longitude, stateKey) => {
     fetch(
@@ -60,36 +85,36 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div class = "headline" ><h1>COMPARISON APP</h1>
+        <div className = "headline" ><h1>COMPARISON APP</h1>
         <h4>Enter up to two cities here:</h4>
         </div>
         <form onSubmit={this.coordinateSubmit}>
-          <div class = "row justify-content-lg-center" id = "data-entry" >
+          <div className = "row justify-content-lg-center" id = "data-entry" >
             <input
-              class="form-control form-control-lg col-lg-3"
+              className="form-control form-control-lg col-lg-3"
               type="text"
               name="latitude"
               placeholder="Enter Latitude"
               // value="35.6895"
             />
             <input
-              class="form-control form-control-lg col-lg-3"
+              className="form-control form-control-lg col-lg-3"
               type="text"
               name="longitude"
               placeholder="Enter longitude"
               // value="139.6917"
             />
           </div>
-          <div class = "row justify-content-lg-center" id = "data-entry">
+          <div className = "row justify-content-lg-center" id = "data-entry">
             <input
-              class="form-control form-control-lg col-lg-3"
+              className="form-control form-control-lg col-lg-3"
               type="text"
               name="latitude2"
               placeholder="Enter Latitude"
               // value="35.6895"
             />
             <input
-              class="form-control form-control-lg col-lg-3"
+              className="form-control form-control-lg col-lg-3"
               type="text"
               name="longitude2"
               placeholder="Enter longitude"
@@ -97,9 +122,32 @@ class App extends Component {
             />
           </div>
           <button>Submit</button>
-        </form><br></br>
-        <div class = "container" >
-        <div class = "row" >
+        </form>
+        <form onSubmit={this.zipcodeSubmit}>
+          <div className = "row justify-content-lg-center" id = "data-entry" >
+            <input
+              className="form-control form-control-lg col-lg-3"
+              type="text"
+              name="zipcode"
+              placeholder="Enter Zipcode"
+              // value="35.6895"
+            />
+          </div>
+          <div className = "row justify-content-lg-center" id = "data-entry" >
+            <input
+              className="form-control form-control-lg col-lg-3"
+              type="text"
+              name="zipcode2"
+              placeholder="Enter Zipcode"
+              // value="35.6895"
+            />
+          </div>
+          <button>Submit</button>
+        </form>
+
+        <br></br>
+        <div className = "container" >
+        <div className = "row" >
         <DataDisplay data={this.state.summary1} />
         <DataDisplay data={this.state.summary2} />
         </div>
