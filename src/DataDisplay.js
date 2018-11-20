@@ -9,21 +9,26 @@ export default class DataDisplay extends Component {
             <div className="col-lg-6">
               <div className="card">
                 <div className="card-body">
-                  <h5 className="card-title">{this.props.data.summary}</h5>
+                  <h4 className="card-title">{this.props.cityName.city}</h4>
                   <h6 className="card-subtitle mb-2 font-weight-bold">
-                    Current temperature: {this.props.data.temperature}F
+                    {this.props.data.summary}
                   </h6>
+                  <p className="card-text">
+                    Current temperature: {this.props.data.temperature}F mph
+                  </p>
                   <p className="card-text">
                     Current wind speed: {this.props.data.windSpeed}
                     mph
                   </p>
                   <p className="card-text">
-                    Current humidity: {this.props.data.humidity * 100}%
+                    Current humidity: {this.props.data.humidity}%
                   </p>
                   <p className="card-text">
-                    Chance of rain: {this.props.data.rain * 100}
+                    Chance of rain: {this.props.data.rain}%
                   </p>
-                  <p className="card-text">Sunrise: {this.props.data.sunrise}</p>
+                  <p className="card-text">
+                    Sunrise: {this.props.data.sunrise}
+                  </p>
                   <p className="card-text">Sunset: {this.props.data.sunset}</p>
                   <a href="#" className="card-link">
                     Card link
