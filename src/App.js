@@ -133,7 +133,7 @@ class App extends Component {
               // value="35.6895"
             />
           </div>
-          <button>Submit</button>
+          <button class="btn btn-lg btn-primary">Submit</button>
         </form>
 
         <br />

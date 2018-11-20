@@ -8,11 +8,12 @@
 }
 
 body {
- /* background-image: url("https://www.publicdomainpictures.net/pictures/40000/velka/alone-in-sundow.jpg"); */
- background-image: url("./images/alone-in-sundow.jpg");
+  /* background-image: url("https://www.publicdomainpictures.net/pictures/40000/velka/alone-in-sundow.jpg"); */
+  background-image: url("./images/alone-in-sundow.jpg");
 }
 
 .headline {
+  padding-top: 30px;
   color: white;
   font-family: Trajan;
 }

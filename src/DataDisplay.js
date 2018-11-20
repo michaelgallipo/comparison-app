@@ -7,29 +7,37 @@ export default class DataDisplay extends Component {
         {this.props.data.temperature && (
           <>
             <div className="col-lg-6">
-              <div className="card">
+              <div className="card border-warning mb-3">
                 <div className="card-body">
                   <h4 className="card-title">{this.props.cityName.city}</h4>
                   <h6 className="card-subtitle mb-2 font-weight-bold">
                     {this.props.data.summary}
                   </h6>
                   <p className="card-text">
-                    Current temperature: {this.props.data.temperature}F mph
+                    <span className="weatherLabel"> Current temperature:</span>{" "}
+                    {this.props.data.temperature}
                   </p>
                   <p className="card-text">
-                    Current wind speed: {this.props.data.windSpeed}
+                    <span className="weatherLabel">Current wind speed:</span>{" "}
+                    {this.props.data.windSpeed}
                     mph
                   </p>
                   <p className="card-text">
-                    Current humidity: {this.props.data.humidity}%
+                    <span className="weatherLabel">Current humidity:</span>{" "}
+                    {this.props.data.humidity}%
                   </p>
                   <p className="card-text">
-                    Chance of rain: {this.props.data.rain}%
+                    <span className="weatherLabel">Chance of rain:</span>{" "}
+                    {this.props.data.rain}%
                   </p>
                   <p className="card-text">
-                    Sunrise: {this.props.data.sunrise}
+                    <span className="weatherLabel">Sunrise:</span>{" "}
+                    {this.props.data.sunrise}
                   </p>
-                  <p className="card-text">Sunset: {this.props.data.sunset}</p>
+                  <p className="card-text">
+                    <span className="weatherLabel">Sunset:</span>{" "}
+                    {this.props.data.sunset}
+                  </p>
                   <a href="#" className="card-link">
                     Card link
                   </a>
