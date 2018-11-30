@@ -116,7 +116,7 @@ class App extends Component {
 
         <form onSubmit={this.zipcodeSubmit}>
           <div className="row justify-content-lg-center" id="data-entry">
-            <input
+            <input id = "zip"
               className="form-control form-control-lg col-lg-3"
               type="text"
               name="zipcode"
@@ -125,7 +125,7 @@ class App extends Component {
             />
           </div>
           <div className="row justify-content-lg-center" id="data-entry">
-            <input
+            <input id = "zip"
               className="form-control form-control-lg col-lg-3"
               type="text"
               name="zipcode2"

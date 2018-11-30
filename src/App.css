@@ -22,6 +22,10 @@ body {
   padding: 5px;
 }
 
+#zip {
+  border-radius: 10px;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

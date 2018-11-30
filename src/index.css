@@ -16,6 +16,7 @@ code {
 .card {
   opacity: 0.8;
   height: 430px;
+  border-radius: 16px;
 }
 
 .weatherLabel {
