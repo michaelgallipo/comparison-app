@@ -9,20 +9,6 @@ class App extends Component {
     this.state = { summary1: {}, summary2: {}, geoData1: {}, geoData2: {} };
   }
 
-  // coordinateSubmit = e => {
-  //   e.preventDefault();
-  //   const latitude = e.target.elements.latitude.value;
-  //   const longitude = e.target.elements.longitude.value;
-  //   const latitude2 = e.target.elements.latitude2.value;
-  //   const longitude2 = e.target.elements.longitude2.value;
-  //   console.log(latitude);
-  //   console.log(longitude);
-  //   console.log(latitude2);
-  //   console.log(longitude2);
-  //   this.getweatherdata(latitude, longitude, "summary1");
-  //   this.getweatherdata(latitude2, longitude2, "summary2");
-  // };
-
   zipcodeSubmit = e => {
     e.preventDefault();
     const zipcode = e.target.elements.zipcode.value;
@@ -96,7 +82,9 @@ class App extends Component {
               humidity: Math.trunc(data.currently.humidity * 100),
               rain: Math.round(data.currently.precipProbability * 100),
               sunrise: moment.unix(data.daily.data[0].sunriseTime).format("LT"),
-              sunset: moment.unix(data.daily.data[0].sunsetTime).format("LT")
+              sunset: moment.unix(data.daily.data[0].sunsetTime).format("LT"),
+              latitude: latitude,
+              longitude: longitude
             }
           });
         });
@@ -116,7 +104,8 @@ class App extends Component {
 
         <form onSubmit={this.zipcodeSubmit}>
           <div className="row justify-content-lg-center" id="data-entry">
-            <input id = "zip"
+            <input
+              id="zip"
               className="form-control form-control-lg col-lg-3"
               type="text"
               name="zipcode"
@@ -125,7 +114,8 @@ class App extends Component {
             />
           </div>
           <div className="row justify-content-lg-center" id="data-entry">
-            <input id = "zip"
+            <input
+              id="zip"
               className="form-control form-control-lg col-lg-3"
               type="text"
               name="zipcode2"
@@ -133,7 +123,7 @@ class App extends Component {
               // value="35.6895"
             />
           </div>
-          <button class="btn btn-lg btn-primary">Submit</button>
+          <button className="btn btn-lg btn-primary">Submit</button>
         </form>
 
         <br />
