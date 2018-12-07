@@ -26,6 +26,11 @@ body {
   border-radius: 10px;
 }
 
+#date {
+  border-radius: 10px;
+  display: inline;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
