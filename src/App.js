@@ -6,7 +6,7 @@ const moment = require("moment");
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { summary1: {}, summary2: {}, geoData1: {}, geoData2: {} };
+    this.state = { summary1: {}, summary2: {}, geoData1: {}, geoData2: {}, historical: {}};
   }
 
   zipcodeSubmit = e => {

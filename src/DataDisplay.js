@@ -1,7 +1,16 @@
 import React, { Component } from "react";
+import HistoricalData from "./HistoricalData"
 const moment = require("moment");
 
 export default class DataDisplay extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { 
+      historical: {}, 
+      showHistoricalData: false 
+    };
+  }
+
   dateSubmit = e => {
     e.preventDefault();
     const year = e.target.elements.year.value;
@@ -41,8 +50,9 @@ export default class DataDisplay extends Component {
           console.log(data);
           this.setState({
             ...this.state,
+            showHistoricalData: true,
             [stateKey]: {
-              summary: data.daily.summary,
+              summary: data.daily.data[0].summary,
               temperature: data.currently.temperature,
               windSpeed: data.currently.windSpeed,
               humidity: Math.trunc(data.currently.humidity * 100),
@@ -57,6 +67,12 @@ export default class DataDisplay extends Component {
         console.log("Fetch Error :-S", err);
       });
   };
+
+  onHistoricalDataClose = () => {
+    this.setState({
+      showHistoricalData: false
+    })
+  }
 
   render() {
     return (
@@ -127,9 +143,17 @@ export default class DataDisplay extends Component {
                 </div>
               </div>
             </div>
+            <div>
+            <HistoricalData
+              onHistoricalDataClose={this.onHistoricalDataClose}
+              show={this.state.showHistoricalData}
+              data={this.state.historical}
+              />
+            </div>
           </>
         )}
       </>
     );
   }
 }
+
