@@ -52,6 +52,8 @@ export default class DataDisplay extends Component {
             ...this.state,
             showHistoricalData: true,
             [stateKey]: {
+              date: {month: month, day: day, year: year},
+              city: this.props.cityName.city,
               summary: data.daily.data[0].summary,
               temperature: data.currently.temperature,
               windSpeed: data.currently.windSpeed,
@@ -69,9 +71,10 @@ export default class DataDisplay extends Component {
   };
 
   onHistoricalDataClose = () => {
+    this.yearInput.focus();
     this.setState({
       showHistoricalData: false
-    })
+    }) 
   }
 
   render() {
@@ -120,6 +123,8 @@ export default class DataDisplay extends Component {
                         type="text"
                         name="year"
                         placeholder="Year"
+                        autofocus="true"
+                        ref={(input) => {this.yearInput = input}}
                       />
                       <input
                         id="date"
